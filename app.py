@@ -16,6 +16,24 @@ class Image_Size:
         self.root.iconbitmap("logo478.ico")
         self.root.resizable(0,0)
 
+        
+
+        def on_enter1(e):
+            but_browse['background']="black"
+            but_browse['foreground']="cyan"  
+        def on_leave1(e):
+            but_browse['background']="SystemButtonFace"
+            but_browse['foreground']="SystemButtonText"
+
+            
+
+        def on_enter2(e):
+            but_clear['background']="black"
+            but_clear['foreground']="cyan"  
+        def on_leave2(e):
+            but_clear['background']="SystemButtonFace"
+            but_clear['foreground']="SystemButtonText"
+
 
 
 
@@ -53,9 +71,13 @@ class Image_Size:
 
         but_browse=Button(mainframe,width=18,text="Browse",font=('times new roman',14),cursor="hand2",command=Dimensions)
         but_browse.place(x=50,y=10)
+        but_browse.bind("<Enter>",on_enter1)
+        but_browse.bind("<Leave>",on_leave1)
 
         but_clear=Button(mainframe,width=18,text="Clear",font=('times new roman',14),cursor="hand2",command=clear)
         but_clear.place(x=50,y=80)
+        but_clear.bind("<Enter>",on_enter2)
+        but_clear.bind("<Leave>",on_leave2)
 
         lab_width=Label(mainframe,text="width :",font=('times new roman',15),bg="black",fg="white")
         lab_width.place(x=70,y=150)
